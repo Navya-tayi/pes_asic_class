@@ -97,7 +97,7 @@ _Install Icarus Verilog_
 sudo make install
 ```
 </details>
-  Error faced & how I resolved them:
+  <details><summary>Error faced & how I resolved it</summary>
   as: unrecognized option '--64' 
   After you add export PATH to bashrc, and save it,
   you may not be able to run gcc even though riscv64-unknown-elf-gcc is working.
@@ -116,6 +116,7 @@ sudo make install
   notice how the global path ie, the path to bin is at the beginning instead of at the end and the
   riscv64 gcc path is appended to it. So the path first go through the gcc compiler and then the riscv compiler
   and this will help avoid the above error
+</details>
 </details>
 
 <details><summary>DAY_1</summary>
