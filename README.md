@@ -15,7 +15,7 @@
 
 
 
-## DAY_0
+<details><summary>DAY_0</summary>
 Installing the riscv64_toolchain:
 - Let's understand the commands
 ```
@@ -129,6 +129,7 @@ sudo make install
   notice how the global path ie, the path to bin is at the beginning instead of at the end and the
   riscv64 gcc path is appended to it. So the path first go through the gcc compiler and then the riscv compiler
   and this will help avoid the above error
+</details>
 ## DAY_1
 
 
