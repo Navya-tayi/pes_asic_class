@@ -4,7 +4,7 @@
 Let's understand the commands
 
 ```
-** Install Git and Vim packages automatically (without manual confirmation) **
+_Install Git and Vim packages automatically (without manual confirmation)_ 
 sudo apt-get install git vim -y
 
 _Install various development tools and libraries automatically_
@@ -133,6 +133,27 @@ sudo make install
   Example: picorv32 CPU core. This RTL implements the RISC-V architecture specifications.
   And the it goes from RTL to the layout.
 </details>
+<details><summary>From Apps to Hardware</summary>
+Apps run on the laptop hardware. How does this happen?
+Application software enters into the system software which converts the application program into binary language. 
+- Flow: APPLICATION SOFTWARE OR APPS -> SYSTEM SOFTWARE -> HARDWARE
+OS -> Handles i/o operations, allocates memory, Low level system functions, It takes an app and converts it into its respective assembly language program and then to binary language to be understood by the hardware.
+COMPILER -> Programming Languages like C, C++, JAVA Etc is taken by the respective compiler and converted into instructions. The syntax/format of these instructions depends on the hardware used like MIPS or RISC-V or x86. They are an abstract interface (called the ISA) between the application language and the hardware.
+ASSEMBLER -> Takes these instructions and converts to its binary numbers. I.e., into machine language program, language that the machine understands. These binary numbers are fed into the hardware.
+Since hardware understands only 1’s and 0’s we need Hardware description language, which is the binary interpretation from the assembler.
+After getting the Hardware description language, it is synthesized into the gate level called the RTL, this gate level is synthesized into the hardware layout.
 </details>
+<details>
+<summary>Lab Work</summary>
+1. Program to compute sum of n numbers
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c3666965-212e-4731-88e5-dfc8144757ef)
+
+  
+</details>
+
+
+</details>
+
+
 
 ## DAY_2
