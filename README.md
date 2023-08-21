@@ -18,7 +18,7 @@
 ## DAY_0
 Installing the riscv64_toolchain:
 - Let's understand the commands
-'''
+```
 _Install Git and Vim packages automatically (without manual confirmation)_
 sudo apt-get install git vim -y
 
@@ -110,22 +110,22 @@ make
 
 _Install Icarus Verilog_
 sudo make install
-'''
+```
 - Error faced & how I resolved them:
-  '''as: unrecognized option '--64' '''
+  ```as: unrecognized option '--64' ```
   After you add export PATH to bashrc, and save it,
   you may not be able to run gcc even though riscv64-unknown-elf-gcc is working.
   This can happen when you append the riscv toolchain path before the gcc path.
   Example:**that may give error**
-  '''
+  ```
   export PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH
   export PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin:$PATH
-  '''
+  ```
   Instead, to avoid the error, the **correct way** to add to the bashrc file is:
-  '''
+  ```
   export PATH=$PATH:~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin
   export PATH=$PATH:~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin
-  '''
+  ```
   notice how the global path ie, the path to bin is at the beginning instead of at the end and the
   riscv64 gcc path is appended to it. So the path first go through the gcc compiler and then the riscv compiler
   and this will help avoid the above error
