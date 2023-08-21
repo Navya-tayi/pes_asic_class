@@ -1,23 +1,8 @@
 # pes_asic_class
-- Brief Introduction
-  ISA is the language of the computer. It is the way we are going to talk to the computers.
-  If you have a C program and it has to be run on a hardware that contains a certain layout, 
-  then the information needs to be passed to the hardware in certain terms. 
-  It is first compiled in the assembly language, in this case the RISC-V assembly language. 
-
-  This is then converted to machine language which is 1’s and 0’s i.e., logic 0 and logic 1, which is understood by hardware of the computer. 
-  These bits are then executed in the layout and then the required output is obtained.
-  Another interface that is required is the hardware description language. 
-  You need to implement the code’s particular RISC-V specifications using some RTL. 
-  Example: picorv32 CPU core. This RTL implements the RISC-V architecture specifications.
-  And the it goes from RTL to the layout.
-
-
-
-
 <details><summary>DAY_0</summary>
 Installing the riscv64_toolchain:
-- Let's understand the commands
+Let's understand the commands
+
 ```
 _Install Git and Vim packages automatically (without manual confirmation)_
 sudo apt-get install git vim -y
@@ -110,13 +95,14 @@ make
 
 _Install Icarus Verilog_
 sudo make install
-```
-- Error faced & how I resolved them:
-  ```as: unrecognized option '--64' ```
+```  
+  Error faced & how I resolved them:
+  as: unrecognized option '--64' 
   After you add export PATH to bashrc, and save it,
   you may not be able to run gcc even though riscv64-unknown-elf-gcc is working.
   This can happen when you append the riscv toolchain path before the gcc path.
   Example:**that may give error**
+
   ```
   export PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH
   export PATH=~/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin:$PATH
@@ -130,7 +116,21 @@ sudo make install
   riscv64 gcc path is appended to it. So the path first go through the gcc compiler and then the riscv compiler
   and this will help avoid the above error
 </details>
-## DAY_1
 
+<details><summary>DAY_1</summary>
+<details><summary>Brief Introduction</summary>
+  ISA is the language of the computer. It is the way we are going to talk to the computers.
+  If you have a C program and it has to be run on a hardware that contains a certain layout, 
+  then the information needs to be passed to the hardware in certain terms. 
+  It is first compiled in the assembly language, in this case the RISC-V assembly language. 
+
+  This is then converted to machine language which is 1’s and 0’s i.e., logic 0 and logic 1, which is understood by hardware of the computer. 
+  These bits are then executed in the layout and then the required output is obtained.
+  Another interface that is required is the hardware description language. 
+  You need to implement the code’s particular RISC-V specifications using some RTL. 
+  Example: picorv32 CPU core. This RTL implements the RISC-V architecture specifications.
+  And the it goes from RTL to the layout.
+</details>
+</details>
 
 ## DAY_2
