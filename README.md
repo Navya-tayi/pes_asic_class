@@ -145,6 +145,7 @@ ASSEMBLER -> Takes these instructions and converts to its binary numbers. I.e., 
 Since hardware understands only 1’s and 0’s we need Hardware description language, which is the binary interpretation from the assembler.
 After getting the Hardware description language, it is synthesized into the gate level called the RTL, this gate level is synthesized into the hardware layout.
 </details>
+
 <details>
 <summary>Lab Work</summary>
 <details><summary>C Program to compute sum from 1 to N</summary>
@@ -157,6 +158,7 @@ output:
 
 
 ![gcc_sum_is100](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8bf80fea-2af3-48af-aac7-1b763dbe4e13.png)
+</details>
 
 <details><summary>RISC-V gcc compile and disassemble</summary>
 Cat output:
@@ -213,14 +215,10 @@ To find number of instructions: 12
 
 
 
+<details><summary>Spike simulation and debug</summary>
 To run the file and get output:
 
 ![spike](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9f8bfe84-fc09-405b-85e9-8788b1c7ad24.png)
-
-</details>
-
-<details><summary>Spike simulation and debug</summary>
-//info here
 </details>
 
 
