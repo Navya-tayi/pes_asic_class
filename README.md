@@ -145,26 +145,32 @@ After getting the Hardware description language, it is synthesized into the gate
 </details>
 <details>
 <summary>Lab Work</summary>
-1. Program to compute sum of n numbers:
+<details><summary>C Program to compute sum from 1 to N</summary>
 
 ![sum1ton](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/27258b2f-78cc-4dab-a3e7-927a37763f8a.png)
 
-cat output:
-
-![cat_output_sum1ton](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b48d7202-bd91-4924-8c4e-d6cfa84a9a80.png)
-
-generating file for riscv compiler:
-![geenrating_file_for_riscv_compiler](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f0cf8503-df08-4898-ba2b-3731c2d2bc22.png)
-
-to run the file and get output:
-
-![spike](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9f8bfe84-fc09-405b-85e9-8788b1c7ad24.png)
-
 output:
+
 ![gccsum1ton_output](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b9af60b2-c7ae-4ccb-8d4c-510620ce094e.png)
 
 
 ![gcc_sum_is100](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8bf80fea-2af3-48af-aac7-1b763dbe4e13.png)
+
+
+Cat output:
+
+![cat_output_sum1ton](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b48d7202-bd91-4924-8c4e-d6cfa84a9a80.png)
+
+Generating file for riscv compiler:
+
+![geenrating_file_for_riscv_compiler](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f0cf8503-df08-4898-ba2b-3731c2d2bc22.png)
+
+To run the file and get output:
+
+![spike](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9f8bfe84-fc09-405b-85e9-8788b1c7ad24.png)
+
+</details>
+
 
 </details>
 
