@@ -189,15 +189,19 @@ Will give the assembly language code
 Output: 
 Main section-
 Address of main section is 10184. And there are 15 instructions
+
 ![main](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/eb4d5927-d460-48fb-bff2-8779b2091388.png)
 
 To find address of next instruction:
+
 ![counting](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1b2a4ad8-3119-4345-8eee-9dbb49fd5ec5.png)
 
 To find number of instructions: 15
+
 ![calc](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9e78fbb1-b06c-4504-b0fe-9494c46a4356.png)
 
 Compile with Ofast:
+
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0b4aa67e-50d2-4746-9614-9814f034ac87.png)
 
 -Ofast is a flag specifies an aggressive optimization level, often referred to as "fastest optimization." It enables all `-O3` optimizations and additionally includes optimizations that might sacrifice precision for speed. This can lead to faster code but might not be suitable for all applications.
@@ -209,16 +213,25 @@ Main section-
 
 To find number of instructions: 12
 
-![12eqns](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a07b1788-36cc-42e2-a9d2-40d4bba05778)
+![12eqns](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a07b1788-36cc-42e2-a9d2-40d4bba05778.png)
 </details>
 
 
-
-
 <details><summary>Spike simulation and debug</summary>
-To run the file and get output:
+* To run the file and get output: Spike Simulation
 
 ![spike](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9f8bfe84-fc09-405b-85e9-8788b1c7ad24.png)
+
+* Debug in Spike:
+  
+![spike1](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a6b36232-a2c9-4872-849f-0ab544cd5b23.png)
+
+Observing stack pointer:
+
+![apike2](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4685fc1d-cd3f-4efd-a5c2-e319fc3fc230.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8d25ec88-52cc-4d4e-9d29-94fa395227e8.png)
+
 </details>
 
 
