@@ -1,6 +1,6 @@
 # pes_asic_class
 <details><summary>DAY_0</summary>
-Installing the riscv64_toolchain:
+<details><summary>Installing the riscv64_toolchain:</summary>
 Let's understand the commands
 
 ```
@@ -95,7 +95,8 @@ make
 
 _Install Icarus Verilog_
 sudo make install
-```  
+```
+</details>
   Error faced & how I resolved them:
   as: unrecognized option '--64' 
   After you add export PATH to bashrc, and save it,
