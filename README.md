@@ -1,6 +1,6 @@
 # pes_asic_class
 <details><summary>DAY_0</summary>
-<details><summary>Installing the riscv64_toolchain:</summary>
+<details markdown=1><summary>Installing the riscv64_toolchain:</summary>
 Let's understand the commands
 
 ```
