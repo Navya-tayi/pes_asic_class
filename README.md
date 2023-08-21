@@ -146,7 +146,8 @@ After getting the Hardware description language, it is synthesized into the gate
 <details>
 <summary>Lab Work</summary>
 1. Program to compute sum of n numbers
-![sum1ton](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1ef97560-3595-43ff-b3cf-4342207499fd)
+
+![sum1ton](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/27258b2f-78cc-4dab-a3e7-927a37763f8a.png)
 
 
 </details>
