@@ -136,7 +136,9 @@ sudo make install
 <details><summary>From Apps to Hardware</summary>
 Apps run on the laptop hardware. How does this happen?
 Application software enters into the system software which converts the application program into binary language. 
+  
 - Flow: APPLICATION SOFTWARE OR APPS -> SYSTEM SOFTWARE -> HARDWARE
+  
 OS -> Handles i/o operations, allocates memory, Low level system functions, It takes an app and converts it into its respective assembly language program and then to binary language to be understood by the hardware.
   
 COMPILER -> Programming Languages like C, C++, JAVA Etc is taken by the respective compiler and converted into instructions. The syntax/format of these instructions depends on the hardware used like MIPS or RISC-V or x86. They are an abstract interface (called the ISA) between the application language and the hardware.
@@ -234,7 +236,71 @@ Observing stack pointer:
 
 </details>
 
+<details><summary>Signed and Unsigned Numbers 64-bit</summary>
+*To find highest unsigned:
 
+Code-
+  
+![2pow10](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1ac90b45-000e-475f-be39-d4a66556832b.png)
+
+Output-
+
+![2pow10_op](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1883e0dd-14ad-4f1f-8235-b7a16277bbad.png)
+
+Code-
+
+![unsignedhighestcode1](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/adc101d6-d40d-4955-9bc4-78c41e214305.png)
+
+Output -
+
+![op1 hn](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0710c043-4b5e-4a31-867a-8363086f7e08.png)
+
+Code -
+
+![2pow127](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5c1adf46-ead3-4ac7-86e4-f8b5970dac6e.png)
+
+Output -
+
+![code op2](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c95f02bb-09d3-4fa3-8902-89e523322a30.png)
+
+In all cases we get the highest unsigned number as the same.
+
+* If you try to find signed with unsigned data type:
+
+code-
+![with neg](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/196bdbea-1f99-44c7-9c1e-6ba440814b97.png)
+
+output -
+
+![wiht_neg_output](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8bc437f5-5bb9-457d-8f0c-ce325403603d.png)
+
+* To find signed number:
+  Code -
+  
+![signed](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/535231e3-1764-47dc-b5dc-d759dd501a21.png)
+
+Output-
+
+![signed_op](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/dea59e07-66b0-460d-a0af-c00aa98e345e.png)
+
+* To find highest and lowest signed 64 - bit:
+  Code with BUGS -
+  
+![signedhighest](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3a08c3b2-a59b-4ae0-9237-6bbc98b4756b.png)
+
+  Output for code with bugs -
+
+![signedhih_op](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d7078f2b-5067-47b0-ba13-6a2896c4cb32.png)
+
+  DEBUGGED Code -
+  
+![debugged code](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d89581f2-154a-4e79-ab9f-a2291b5e4ce1.png)
+
+  Output -
+  
+![debugged_op](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/7233ab3b-4ce5-49a3-86f6-0fb43bfef615.png)
+
+</details>
 
 </details>
 
