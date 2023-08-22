@@ -237,7 +237,7 @@ Observing stack pointer:
 </details>
 
 <details><summary>Signed and Unsigned Numbers 64-bit</summary>
-*To find highest unsigned:
+* To find highest unsigned:
 
 Code-
   
@@ -303,7 +303,6 @@ Output-
 </details>
 
 </details>
-
 
 </details>
 
