@@ -1,6 +1,7 @@
 # pes_asic_class
 <details><summary>DAY_0</summary>
 <details><summary>Installing the riscv64_toolchain:</summary>
+  
 Let's understand the commands
 
 ```
@@ -98,7 +99,10 @@ sudo make install
 ```
 </details>
   <details><summary>Error faced & how I resolved it</summary>
+    
+  ```
   as: unrecognized option '--64' 
+ ``` 
   After you add export PATH to bashrc, and save it,
   you may not be able to run gcc even though riscv64-unknown-elf-gcc is working.
   This can happen when you append the riscv toolchain path before the gcc path.
@@ -116,11 +120,13 @@ sudo make install
   notice how the global path ie, the path to bin is at the beginning instead of at the end and the
   riscv64 gcc path is appended to it. So the path first go through the gcc compiler and then the riscv compiler
   and this will help avoid the above error
+  
 </details>
 </details>
 
 <details><summary>DAY_1</summary>
 <details><summary>Brief Introduction</summary>
+  
   ISA is the language of the computer. It is the way we are going to talk to the computers.
   If you have a C program and it has to be run on a hardware that contains a certain layout, 
   then the information needs to be passed to the hardware in certain terms. 
@@ -134,7 +140,7 @@ sudo make install
   And the it goes from RTL to the layout.
 </details>
 <details><summary>From Apps to Hardware</summary>
-Apps run on the laptop hardware. How does this happen?
+* Apps run on the laptop hardware. How does this happen?
 Application software enters into the system software which converts the application program into binary language. 
   
 - Flow: APPLICATION SOFTWARE OR APPS -> SYSTEM SOFTWARE -> HARDWARE
