@@ -5,7 +5,7 @@
 * Let's understand the commands
 ---
 ```ruby
-_Install Git and Vim packages automatically (without manual confirmation)_ 
+# Install Git and Vim packages automatically (without manual confirmation)
 sudo apt-get install git vim -y
 
 _Install various development tools and libraries automatically_
