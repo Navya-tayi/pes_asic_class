@@ -1,4 +1,4 @@
-# pes_asic_class
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/389ae826-4508-4858-bb19-5ff66151daac)# pes_asic_class
 <details><summary>DAY_0</summary>
 <details><summary>Installing the riscv64_toolchain:</summary>
 Let's understand the commands
@@ -171,17 +171,17 @@ Generating file for riscv compiler:
 
 ![geenrating_file_for_riscv_compiler](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f0cf8503-df08-4898-ba2b-3731c2d2bc22.png)
 
-riscv64-unknown-elf-gcc: This is the command for the RISC-V GCC compiler, which is used to compile C code for RISC-V architectures.
+* riscv64-unknown-elf-gcc: This is the command for the RISC-V GCC compiler, which is used to compile C code for RISC-V architectures.
 
--O1: This is an optimization level flag. -O1 specifies the first level of optimization. Higher optimization levels (e.g., -O2, -O3) apply more aggressive optimizations but might also increase compilation time.
+* -O1: This is an optimization level flag. -O1 specifies the first level of optimization. Higher optimization levels (e.g., -O2, -O3) apply more aggressive optimizations but might also increase compilation time.
 
--mabi=lp64: This flag sets the ABI (Application Binary Interface) to use the LP64 data model, which means int and pointers are 32 bits, and long and long long are 64 bits.
+* -mabi=lp64: This flag sets the ABI (Application Binary Interface) to use the LP64 data model, which means int and pointers are 32 bits, and long and long long are 64 bits.
 
--march=rv64i: This flag specifies the target RISC-V architecture and ISA (Instruction Set Architecture). rv64i indicates a 64-bit integer base instruction set architecture.
+* -march=rv64i: This flag specifies the target RISC-V architecture and ISA (Instruction Set Architecture). rv64i indicates a 64-bit integer base instruction set architecture.
 
--o sum1ton.o: This flag specifies the output file name. In this case, the compiled output will be named sum1ton.o.
+* -o sum1ton.o: This flag specifies the output file name. In this case, the compiled output will be named sum1ton.o.
 
-sum1ton.c: This is the source code file that is being compiled.
+* sum1ton.c: This is the source code file that is being compiled.
 
 Disassemble:
 Will give the assembly language code
@@ -189,16 +189,16 @@ Will give the assembly language code
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/7ced1426-69fa-4d4a-b670-7799a6e16cfc.png)
 
 Output: 
-Main section-
+* Main section-
 Address of main section is 10184. And there are 15 instructions
 
 ![main](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/eb4d5927-d460-48fb-bff2-8779b2091388.png)
 
-To find address of next instruction:
+* To find address of next instruction:
 
 ![counting](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1b2a4ad8-3119-4345-8eee-9dbb49fd5ec5.png)
 
-To find number of instructions: 15
+* To find number of instructions: 15
 
 ![calc](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9e78fbb1-b06c-4504-b0fe-9494c46a4356.png)
 
@@ -206,14 +206,14 @@ Compile with Ofast:
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0b4aa67e-50d2-4746-9614-9814f034ac87.png)
 
--Ofast is a flag specifies an aggressive optimization level, often referred to as "fastest optimization." It enables all `-O3` optimizations and additionally includes optimizations that might sacrifice precision for speed. This can lead to faster code but might not be suitable for all applications.
+- Ofast is a flag specifies an aggressive optimization level, often referred to as "fastest optimization." It enables all `-O3` optimizations and additionally includes optimizations that might sacrifice precision for speed. This can lead to faster code but might not be suitable for all applications.
 
 Output:
-Main section-
+* Main section-
 
 ![main2](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/bd19b9a8-9fea-4486-bc5c-e341204be741.png)
 
-To find number of instructions: 12
+* To find number of instructions: 12
 
 ![12eqns](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a07b1788-36cc-42e2-a9d2-40d4bba05778.png)
 </details>
@@ -268,6 +268,7 @@ In all cases we get the highest unsigned number as the same.
 * If you try to find signed with unsigned data type:
 
 code-
+
 ![with neg](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/196bdbea-1f99-44c7-9c1e-6ba440814b97.png)
 
 output -
@@ -308,4 +309,94 @@ Output-
 
 
 
-## DAY_2
+<details><summary>DAY_2</summary>
+Application Binary Interface (ABI):
+The RISC-V ABI defines the conventions and rules that govern how compiled software components interact with each other at the binary level. It establishes a standardized interface for functions, data, and system calls, ensuring compatibility between different software components.
+
+The RISC-V ABI covers various aspects of binary compatibility, including:
+
+* Calling Conventions: Specifies how function calls are made, how arguments are passed to functions, how return values are handled, and which registers are used for parameter passing.
+
+* Register Usage: Defines which registers are reserved for specific purposes, such as function arguments, return values, and temporary storage.
+
+* Stack Layout: Specifies how the call stack is managed, including how local variables and function call frames are organized in memory.
+
+* Data Representation: Defines how different data types are represented in memory, including integer and floating-point types.
+
+* Exception Handling: Specifies how exceptions, interrupts, and system calls are handled, including the interaction between user-level software and the operating system.
+
+* Memory Layout: Defines how memory is organized, including the layout of code, data, and stack segments.
+
+The RISC-V ABI provides a standardized framework that allows software components, such as compiled programs, libraries, and the operating system, to work together seamlessly. It ensures that software produced by different compilers and tools can interoperate correctly, even if they are developed independently.
+
+Different ABIs are available for RISC-V, each tailored to specific use cases and environments, such as 32-bit or 64-bit systems. Choosing the appropriate ABI is crucial to ensure proper compatibility and efficient execution of software on RISC-V platforms.
+
+<details><summary>Lab Work</summary>
+* Algorithm to re-write C program using ASM Language:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9d9c8f72-5490-4e81-8235-60496f81d698.png)
+
+* Code to pass variables through assembly language function:
+  ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b9ad3a19-1ef8-4364-a9a9-99cd0660f8f3.png)
+
+* Assembly language function:
+  ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/15ff65b1-bd0e-49f0-b765-bc07b30bfed9.png)
+
+* Simulate the above programs:
+  output -
+  
+![op1](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f58815a3-a350-45a8-b40a-c867cb21dbc2.png)
+
+* disassembling the code:
+  
+![disassembly](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cb39430f-5521-4cbe-a200-beabb9cdf637.png)
+
+* Basic Verification flow using iverilog:
+
+  ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5fc3ab46-72b1-437c-9cb5-b0372d64aecf.png)
+
+Set of scrips needed to convert the code into hex file and load it into the memory and then run it on the RISC-V CPU:
+```vim rv32im.sh```
+
+  ![rv32](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3befbcb3-2c08-42b4-bef7-107e77981661.png)
+
+At the end of these scripts we get hex files and then we use a tool called iverilog
+which dumps a .vvp file which is the output of the iverilog simulation process. It is the compiled binary that represents the simulation model of the verilog design. 
+It can be executed by the Icarus Verilog simulator to simulate the behavior of the digital circuit.
+
+* To run this :
+
+```
+chmod 777 rv32im.sh // change permissions
+./rv32im.sh   // to run
+``` 
+output:
+
+![rv32imop](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9107cb47-1cff-4305-9d80-a6ddddd0c4d5.png)
+
+![op2](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0093eda8-74b0-445d-a8b9-53e44478c921.png)
+
+This script creates a hex file
+
+
+* The hex file: The application pattern is converted to a binary pattern
+```
+vim firmware.hex
+```
+
+![hex](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a280c32b-074a-4322-b6a1-bc80efc2ae7a.png)
+
+* Bit stream file:
+```
+vim firmware32.hex
+```
+
+![bit stremfile](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/db26ecae-010b-4e38-99fa-1203e124b982.png)
+
+The hex file is loaded into the memory and is being used by (processed by) the picorv32 core:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ed478fa7-4521-4c2a-9240-7a59c1483e97.png)
+
+
+</details>
+</details>
