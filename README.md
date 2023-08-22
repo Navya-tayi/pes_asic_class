@@ -397,6 +397,6 @@ The hex file is loaded into the memory and is being used by (processed by) the p
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ed478fa7-4521-4c2a-9240-7a59c1483e97.png)
 
-
+</details>
 </details>
 </details>
