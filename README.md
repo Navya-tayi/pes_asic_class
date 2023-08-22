@@ -1,4 +1,4 @@
-![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/389ae826-4508-4858-bb19-5ff66151daac)# pes_asic_class
+# pes_asic_class
 <details><summary>DAY_0</summary>
 <details><summary>Installing the riscv64_toolchain:</summary>
 Let's understand the commands
@@ -310,6 +310,7 @@ Output-
 
 
 <details><summary>DAY_2</summary>
+<details><summary>Introduction</summary>
 Application Binary Interface (ABI):
 The RISC-V ABI defines the conventions and rules that govern how compiled software components interact with each other at the binary level. It establishes a standardized interface for functions, data, and system calls, ensuring compatibility between different software components.
 
@@ -330,11 +331,11 @@ The RISC-V ABI covers various aspects of binary compatibility, including:
 The RISC-V ABI provides a standardized framework that allows software components, such as compiled programs, libraries, and the operating system, to work together seamlessly. It ensures that software produced by different compilers and tools can interoperate correctly, even if they are developed independently.
 
 Different ABIs are available for RISC-V, each tailored to specific use cases and environments, such as 32-bit or 64-bit systems. Choosing the appropriate ABI is crucial to ensure proper compatibility and efficient execution of software on RISC-V platforms.
-
+</details>
 <details><summary>Lab Work</summary>
 * Algorithm to re-write C program using ASM Language:
 
-![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9d9c8f72-5490-4e81-8235-60496f81d698.png)
+  ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9d9c8f72-5490-4e81-8235-60496f81d698.png)
 
 * Code to pass variables through assembly language function:
   ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b9ad3a19-1ef8-4364-a9a9-99cd0660f8f3.png)
@@ -345,11 +346,11 @@ Different ABIs are available for RISC-V, each tailored to specific use cases and
 * Simulate the above programs:
   output -
   
-![op1](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f58815a3-a350-45a8-b40a-c867cb21dbc2.png)
+  ![op1](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f58815a3-a350-45a8-b40a-c867cb21dbc2.png)
 
 * disassembling the code:
   
-![disassembly](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cb39430f-5521-4cbe-a200-beabb9cdf637.png)
+  ![disassembly](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cb39430f-5521-4cbe-a200-beabb9cdf637.png)
 
 * Basic Verification flow using iverilog:
 
@@ -384,18 +385,18 @@ This script creates a hex file
 vim firmware.hex
 ```
 
-![hex](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a280c32b-074a-4322-b6a1-bc80efc2ae7a.png)
+  ![hex](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a280c32b-074a-4322-b6a1-bc80efc2ae7a.png)
 
 * Bit stream file:
 ```
 vim firmware32.hex
 ```
 
-![bit stremfile](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/db26ecae-010b-4e38-99fa-1203e124b982.png)
+  ![bit stremfile](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/db26ecae-010b-4e38-99fa-1203e124b982.png)
 
 The hex file is loaded into the memory and is being used by (processed by) the picorv32 core:
 
-![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ed478fa7-4521-4c2a-9240-7a59c1483e97.png)
+  ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ed478fa7-4521-4c2a-9240-7a59c1483e97.png)
 
 </details>
 </details>
