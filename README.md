@@ -1,8 +1,8 @@
 # pes_asic_class
 <details><summary>DAY_0</summary>
 <details><summary>Installing the riscv64_toolchain:</summary>
-  
-* Let's understand the commands
+
+* Let's understand the commands :
 ---
 ```ruby
 # Install Git and Vim packages automatically (without manual confirmation)
@@ -226,6 +226,7 @@ Output:
 
 
 <details><summary>Spike simulation and debug</summary>
+
 * To run the file and get output: Spike Simulation
 
 ![spike](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9f8bfe84-fc09-405b-85e9-8788b1c7ad24.png)
@@ -243,6 +244,7 @@ Observing stack pointer:
 </details>
 
 <details><summary>Signed and Unsigned Numbers 64-bit</summary>
+
 * To find highest unsigned:
 
 Code-
