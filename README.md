@@ -8,93 +8,93 @@
 # Install Git and Vim packages automatically (without manual confirmation)
 sudo apt-get install git vim -y
 
-_Install various development tools and libraries automatically_
+# Install various development tools and libraries automatically
 sudo apt-get install autoconf automake autotools-dev curl libmpc-dev \
 libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo \
 gperf libtool patchutils bc zlib1g-dev git libexpat1-dev gtkwave -y
 
-_Change to the home directory and store its path in the 'pwd' variable_
+# Change to the home directory and store its path in the 'pwd' variable
 cd
 pwd=$PWD
 
-_Create a directory named 'riscv_toolchain' and change to it_
+# Create a directory named 'riscv_toolchain' and change to it
 mkdir riscv_toolchain
 cd riscv_toolchain
 
-_Download the RISC-V GCC toolchain tarball_
+# Download the RISC-V GCC toolchain tarball
 wget "https://static.dev.sifive.com/dev-tools/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz"
 
-_Extract the RISC-V GCC toolchain tarball_
+# Extract the RISC-V GCC toolchain tarball
 tar -xvzf riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14.tar.gz
 
-_Update the 'PATH' environment variable to include the RISC-V toolchain binaries_
+# Update the 'PATH' environment variable to include the RISC-V toolchain binaries
 export PATH=$pwd/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/bin:$PATH
 
-_Install the device tree compiler_
+# Install the device tree compiler
 sudo apt-get install device-tree-compiler -y
 
-_Clone the RISC-V ISA simulator repository_
+# Clone the RISC-V ISA simulator repository
 git clone https://github.com/riscv/riscv-isa-sim.git
 cd riscv-isa-sim/
 
-_Create a 'build' directory and change to it_
+# Create a 'build' directory and change to it
 mkdir build
 cd build
 
-_Configure the build for the RISC-V ISA simulator_
+# Configure the build for the RISC-V ISA simulator
 ../configure --prefix=$pwd/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14
 
-_Compile the RISC-V ISA simulator_
+# Compile the RISC-V ISA simulator
 make
 
-_Install the RISC-V ISA simulator_
+# Install the RISC-V ISA simulator
 sudo make install
 
-_Change back to the 'riscv_toolchain' directory_
+# Change back to the 'riscv_toolchain' directory
 cd $pwd/riscv_toolchain
 
-_Clone the RISC-V Proxy Kernel repository_
+# Clone the RISC-V Proxy Kernel repository
 git clone https://github.com/riscv/riscv-pk.git
 cd riscv-pk/
 
-_Create a 'build' directory and change to it_
+# Create a 'build' directory and change to it
 mkdir build
 cd build
 
-_Configure the build for the RISC-V Proxy Kernel_
+# Configure the build for the RISC-V Proxy Kernel
 ../configure --prefix=$pwd/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14 --host=riscv64-unknown-elf
 
-_Compile the RISC-V Proxy Kernel_
+# Compile the RISC-V Proxy Kernel
 make
 
-_Install the RISC-V Proxy Kernel_
+# Install the RISC-V Proxy Kernel
 sudo make install
 
-_Update the 'PATH' environment variable again to include the RISC-V Proxy Kernel binaries_
+# Update the 'PATH' environment variable again to include the RISC-V Proxy Kernel binaries
 export PATH=$pwd/riscv_toolchain/riscv64-unknown-elf-gcc-8.3.0-2019.08.0-x86_64-linux-ubuntu14/riscv64-unknown-elf/bin:$PATH
 
-_Change back to the 'riscv_toolchain' directory_
+# Change back to the 'riscv_toolchain' directory
 cd $pwd/riscv_toolchain
 
-_Clone the Icarus Verilog repository_
+# Clone the Icarus Verilog repository
 git clone https://github.com/steveicarus/iverilog.git
 cd iverilog/
 
-_Switch to the v10-branch of Icarus Verilog_
+# Switch to the v10-branch of Icarus Verilog
 git checkout --track -b v10-branch origin/v10-branch
 git pull
 
-_Change permissions and run autoconf.sh_
+# Change permissions and run autoconf.sh
 chmod 777 autoconf.sh
 ./autoconf.sh
 
-_Configure the Icarus Verilog build_
+# Configure the Icarus Verilog build
 ./configure
 
-_Compile Icarus Verilog_
+# Compile Icarus Verilog
 make
 
-_Install Icarus Verilog_
+# Install Icarus Verilog
 sudo make install
 ```
 </details>
