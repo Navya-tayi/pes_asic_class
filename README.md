@@ -2,9 +2,9 @@
 <details><summary>DAY_0</summary>
 <details><summary>Installing the riscv64_toolchain:</summary>
   
-Let's understand the commands
-
-```
+* Let's understand the commands
+---
+```ruby
 _Install Git and Vim packages automatically (without manual confirmation)_ 
 sudo apt-get install git vim -y
 
@@ -141,17 +141,17 @@ sudo make install
 </details>
 <details><summary>From Apps to Hardware</summary>
 * Apps run on the laptop hardware. How does this happen?
-Application software enters into the system software which converts the application program into binary language. 
+  Application software enters into the system software which converts the application program into binary language. 
   
 - Flow: APPLICATION SOFTWARE OR APPS -> SYSTEM SOFTWARE -> HARDWARE
   
-OS -> Handles i/o operations, allocates memory, Low level system functions, It takes an app and converts it into its respective assembly language program and then to binary language to be understood by the hardware.
+- OS -> Handles i/o operations, allocates memory, Low level system functions, It takes an app and converts it into its respective assembly language      program and then to binary language to be understood by the hardware.
   
-COMPILER -> Programming Languages like C, C++, JAVA Etc is taken by the respective compiler and converted into instructions. The syntax/format of these instructions depends on the hardware used like MIPS or RISC-V or x86. They are an abstract interface (called the ISA) between the application language and the hardware.
+- COMPILER -> Programming Languages like C, C++, JAVA Etc is taken by the respective compiler and converted into instructions. The syntax/format of      these instructions depends on the hardware used like MIPS or RISC-V or x86. They are an abstract interface (called the ISA) between the application    language and the hardware.
 
-ASSEMBLER -> Takes these instructions and converts to its binary numbers. I.e., into machine language program, language that the machine understands. These binary numbers are fed into the hardware.
-Since hardware understands only 1’s and 0’s we need Hardware description language, which is the binary interpretation from the assembler.
-After getting the Hardware description language, it is synthesized into the gate level called the RTL, this gate level is synthesized into the hardware layout.
+- ASSEMBLER -> Takes these instructions and converts to its binary numbers. I.e., into machine language program, language that the machine       understands. These binary numbers are fed into the hardware.
+  Since hardware understands only 1’s and 0’s we need Hardware description language, which is the binary interpretation from the assembler.
+  After getting the Hardware description language, it is synthesized into the gate level called the RTL, this gate level is synthesized into the       hardware layout.
 </details>
 
 <details>
@@ -344,12 +344,15 @@ Different ABIs are available for RISC-V, each tailored to specific use cases and
   ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9d9c8f72-5490-4e81-8235-60496f81d698.png)
 
 * Code to pass variables through assembly language function:
+  
   ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b9ad3a19-1ef8-4364-a9a9-99cd0660f8f3.png)
 
 * Assembly language function:
+  
   ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/15ff65b1-bd0e-49f0-b765-bc07b30bfed9.png)
 
 * Simulate the above programs:
+  
   output -
   
   ![op1](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f58815a3-a350-45a8-b40a-c867cb21dbc2.png)
@@ -362,7 +365,8 @@ Different ABIs are available for RISC-V, each tailored to specific use cases and
 
   ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5fc3ab46-72b1-437c-9cb5-b0372d64aecf.png)
 
-Set of scrips needed to convert the code into hex file and load it into the memory and then run it on the RISC-V CPU:
+* Set of scrips needed to convert the code into hex file and load it into the memory and then run it on the RISC-V CPU:
+
 ```vim rv32im.sh```
 
   ![rv32](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3befbcb3-2c08-42b4-bef7-107e77981661.png)
@@ -387,6 +391,7 @@ This script creates a hex file
 
 
 * The hex file: The application pattern is converted to a binary pattern
+  
 ```
 vim firmware.hex
 ```
@@ -394,6 +399,7 @@ vim firmware.hex
   ![hex](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a280c32b-074a-4322-b6a1-bc80efc2ae7a.png)
 
 * Bit stream file:
+  
 ```
 vim firmware32.hex
 ```
