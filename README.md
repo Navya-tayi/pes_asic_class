@@ -1,4 +1,5 @@
 # pes_asic_class
+## LAB - WEEK 1
 <details><summary>DAY_0</summary>
 <details><summary>Installing the riscv64_toolchain:</summary>
 
@@ -414,5 +415,44 @@ The hex file is loaded into the memory and is being used by (processed by) the p
   ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ed478fa7-4521-4c2a-9240-7a59c1483e97.png)
 
 </details>
+</details>
+</details>
+
+## LAB WEEK -2
+<details><summary>Day 1 : Introduction to Verilog RTL design and synthesis</summary>
+<details><summary>SKY130RTL DISK1- Introduction to open-source simulator iverilog</summary>
+* Simulator:
+A simulator is a tool for checking the design. RTL design is the implementation of a spec. The intent of a spec is checked by simulating the design. The tool used for this simulation is the simulator.
+
+* Design:
+The actual Verilog code or a set of Verilog codes which has the intended functionality to meet with the required specifications.
+Testbench is the setup to apply stimulus/test_vectors (to check if design is obeying specifications) to the design to check its functionality.
+
+* How a simulator works:
+Simulator looks for changes on the input signals.
+Upon every change in the input, the output is evaluated. If there is no change in the input, the simulator is not going to evaluate the output.
+
+Design-> say it has primary inputs, it has one or more primary outputs.
+-> Need to generate stimulus at all primary inputs and the stimulus must be observed at all the outputs
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/10c8b73d-490c-4154-9025-f83a6c066d6b.png)
+
+Testbench does not have a primary input or primary output only design has primary input and primary output:
+A test bench is a simulation environment used to test digital circuit designs. It doesn't have primary inputs and outputs like the actual design. Instead, it connects to the primary inputs and outputs of the design under test (DUT) and provides stimulus while observing behavior to verify the DUT's functionality. The test bench's purpose is to facilitate testing, not to be a part of the final hardware.
+
+iverilog simulator:
+Simulator is going to look for changes in i/p and is going to dump the changes in the output.
+The output of a simulator is a vcd file. (vcd stands for value change dump)
+Because we are looking for the changes in the values.
+
+We want to view this vcd file. We will use another tool called gtkwave to view the waveform outputs.
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/45f8db70-a90e-43eb-ba7d-f7a282eb20d3.png)
+
+
+
+
+
+
+
 </details>
 </details>
