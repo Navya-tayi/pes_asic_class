@@ -455,4 +455,20 @@ We want to view this vcd file. We will use another tool called gtkwave to view t
 
 
 </details>
+<details><summary>Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
+<details><summary>SKY130RTL D2SK1 - Introduction to timing .libs</summary>
+## SKY130RTL D2SK1 L1 Lab4 Introduction to dot Lib part1:
+What exactly .lib looks like?
+It looks like this:
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a7f89ba9-1759-466c-afcc-1a24f49277da.png)
+To remove the unpleasant color,press shift + colon and type "syn off"
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/db16021c-4693-44f9-80f8-72607962b2a8.png)
+
+
+
+
+</details>
+
+
+</details>
 </details>
