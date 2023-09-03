@@ -670,7 +670,7 @@ Reason 2: DIVIDE & CONQUER
 </details>
 
 
-<details><summary> Various Flop Coding Styles and Optimisation</summary></details>
+<details><summary> Various Flop Coding Styles and Optimisation</summary>
 
 ## SKY130RTL D2SK3 L2 Why Flops and Flop coding styles part1
 
@@ -873,4 +873,5 @@ Netlist:
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9ba1ec35-3631-4a42-bd9e-8de8e0802547.png)
 
 These are some custom optimisations, very special. Here hardware can just be obtained by rewiring the existing signals. so hardware not required.
+</details>
 </details>
