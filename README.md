@@ -451,7 +451,7 @@ We want to view this vcd file. We will use another tool called gtkwave to view t
 
 
 
-
+</details>
 
 
 
@@ -552,7 +552,7 @@ We can also observe an increase in power
 
 
 
-</details>
+
 
 
 </details>
