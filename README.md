@@ -421,6 +421,7 @@ The hex file is loaded into the memory and is being used by (processed by) the p
 ## LAB WEEK -2
 <details><summary>Day 1 : Introduction to Verilog RTL design and synthesis</summary>
 <details><summary>SKY130RTL DISK1- Introduction to open-source simulator iverilog</summary>
+  
 * Simulator:
 A simulator is a tool for checking the design. RTL design is the implementation of a spec. The intent of a spec is checked by simulating the design. The tool used for this simulation is the simulator.
 
@@ -456,7 +457,9 @@ We want to view this vcd file. We will use another tool called gtkwave to view t
 
 </details>
 <details><summary>Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
+  
 <details><summary>SKY130RTL D2SK1 - Introduction to timing .libs</summary>
+  
 ## SKY130RTL D2SK1 L1 Lab4 Introduction to dot Lib part1:
 What exactly .lib looks like?
 It looks like this:
@@ -464,7 +467,86 @@ It looks like this:
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a7f89ba9-1759-466c-afcc-1a24f49277da.png)
   
 To remove the unpleasant color,press shift + colon and type "syn off"
+
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/db16021c-4693-44f9-80f8-72607962b2a8.png)
+
+DO NOT EDIT THE .lib FILE
+first line : Name ofthe library sky130, 130 nm library.
+tt - stands for typical. The libraries can be slow, fast or typical
+025C - temperature
+1v80 - indicates the voltage
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b068f5fc-02fa-484d-9aee-0fa7e91bb1f9)
+
+
+When you look at a library you should think of P, V, T - process, Voltage, Temperature
+
+There will be variation in process due to variations in fabrication.
+Variation in voltage means there will be variations in the working.
+We should have the silicon work even when P V and T vary.
+
+We should factor in these variations when designing the circuit.
+
+Our libraries are charecterised to model these variations
+
+## SKY130RTL D2SK1 L2 Lab4 Introduction to dot Lib part2
+In the next few lines we can observe:
+
+* Technology : CMOS
+* Delay model : Lookup Table
+* Units of time, voltage, power, current, resistance and capacitance
+* Operating conditions, voltage, process and temperature
+
+There are going to be a lot of cells in our library
+"cell" is a keyword in .lib that marks the beginning of a cell defenition
+For all input combinations,it is going to have the info
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1bff2d15-62a1-47cf-83a5-7f60542dee36.png)
+
+2 input AND gate and remaining all are OR gate
+it is going to add a1 and a2 and or it with b1,c1 and d1
+
+The power value when A1,A2, B1 and C1 are low and D1 is high we can see in "value"
+Like this since there are 5 gates, e=s power 5 ie, 32 combinations we can see
+
+To understand the  fucntionality of the cell, we can look at the equivalent verilog model
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d977d06c-e25f-4731-a322-143f2a3e277c.png)
+
+pp stands for power ports. 
+
+Let us check without the power port information
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/04e3b986-edaf-45f7-991f-0f76b5c4acde.png)
+
+behavioral.v file opens:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5c27767e-67fd-45ca-b485-cfb935de0006.png)
+
+
+* You can observe the area number and the power port information;
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4f1af340-9f91-4ba4-9475-b97510a5725f.png)
+
+
+* Describes each input pin, power, transition, delay associated with each pin:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4cd20bf2-95f8-4a60-9d0c-9900f3c8a77e.png)
+
+## SKY130RTL D2SK1 L3 Lab4 Introduction to dot Lib part3
+
+* Behavioral model for AND gate:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d8f15863-9f15-441d-a7cd-e5cbc2bf34a3.png)
+
+  
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/da62849a-077d-45c3-af0d-02011dd6a14f.png)
+
+* and 2_0, 2_2 and 2_4 are different flavours of the AND cell, we can observe the increase in area as the transistor size gets wider:
+We can also observe an increase in power 
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/21664594-2cf0-41cc-bb04-c99e1326987c.png)
 
 
 
