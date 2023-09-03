@@ -456,6 +456,7 @@ We want to view this vcd file. We will use another tool called gtkwave to view t
 
 
 </details>
+
 <details><summary>Day 2 - Timing libs, hierarchical vs flat synthesis and efficient flop coding styles</summary>
   
 <details><summary>SKY130RTL D2SK1 - Introduction to timing .libs</summary>
@@ -543,7 +544,7 @@ behavioral.v file opens:
   
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/da62849a-077d-45c3-af0d-02011dd6a14f.png)
 
-* and 2_0, 2_2 and 2_4 are different flavours of the AND cell, we can observe the increase in area as the transistor size gets wider:
+* AND 2_0, 2_2 and 2_4 are different flavours of the AND cell, we can observe the increase in area as the transistor size gets wider:
 We can also observe an increase in power 
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/21664594-2cf0-41cc-bb04-c99e1326987c.png)
