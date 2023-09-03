@@ -670,5 +670,207 @@ Reason 2: DIVIDE & CONQUER
 </details>
 
 
+<details><summary> Various Flop Coding Styles and Optimisation</summary></details>
 
+## SKY130RTL D2SK3 L2 Why Flops and Flop coding styles part1
+
+How to code a flop and what are the different coding styles possible?
+
+For any digital design, for example a combinational circuit, when you give them an input, the output is going to change after a propagation delay. 
+In the below diagram, when c goes low, it is immediately seen by the OR gate, initially internal node(io) is 0.
+After 1 ns of C going low, Y will go low.
+
+And if a,b are 1, it will take some delay for the AND gate's output to reach the internal node. SO for that time when the output of ans gate ha snot yet reached the (io), we will have a 0 at the output and then as soon as it reaches we get a 1. So the part where is was 0, is actually a "glitch".
+
+(A&B)|C => boolean expression
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/2df564d4-2220-45ff-8d33-216bc3c7c240.png)
+
+So what if a glich happens now?
+In design, we will have combinational circuits everywhere. More the amount of combinational circuits, more the glitches. The outputs will never settle down. So we want an element to store the value. That element is called as a FLOP.
+These flops are like storage elements. We are using flops to restrict the gliches. The output of a flop will change only on the edge of a clock. So even if the input is gliching, the output will be stable. 
+Q is shielded from changes in D when there is no clock. 
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d71e31cd-60af-4eee-b0c7-a388268a4e33.png)
+
+We need to initialize the flop with some value, else the combinational logic will take some garbage value.
+To initialize the flop we have control pins on the flop like reset or set. An these can be either synchronous or asynchronous.
+
+## SKY130RTL D2SK3 L2 Why Flops and Flop coding styles part2
+Code for a D flip flop with asynchronous reset:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/e4883feb-3b69-47d9-9469-5596499f9ab4.png)
+
+always @ posedge clk, signifies a posedge flop, we are also looking at posedge of asynchronous reset.
+* The moment you enter the always block, we are first looking for an asynchronous reset
+* The always block will get evaluated when there is a change in the clk or rst
+* If the reset is on, the output will go to 0
+* else, if you had entered the loop cuz of posedge clk, it was not cuz of async_reset and we will look at the else block and only at pos edge of clk, d is at output
+* At neg edge, the always block is not evaluated. So this is pos edge sensitive
+* It is asynchronous reste because the reset does not depend on the clock, it can be ON at anytime and when it is on, irrespective of clk, reset will happen.
+* 
+Code for a D flip flop with asynchronous set:
+The output will be set to 1, irrespective of clk, when set is ON
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d55f78eb-bbb8-4b86-a3a5-f506b32104d0.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b5ddaa15-c889-4924-9eef-536a195b916c.png)
+
+
+When something is synchronous, it will turn into D pin of the flop.
+You have a MUX, if rst is high, it awaits the pos edge of clk , implemented with a MUX
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cdf77819-e7f3-4e08-ace2-1c0745fbc2c0.png)
+
+Even if sync_reset is toggled, it will not enter the always block, until posedge of the clock.
+Upn posedge of clock, we look for prescence of synchronous reste, if it is there, Q goes to 0, else d.
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4e5b2ecc-233d-4825-b2c1-be7dbfb9adc3.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b28ee1f1-198e-482a-bb2a-6dcc04a9a84a.png)
+
+
+In some situations you may have both synchronous and asynchronous reset.
+Although asynchronous reset can happen anytime, you will consider synchronnous reset only if there was posedge of clk.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1fbf6386-9945-4b47-bb06-be0c957660f7.png)
+
+diagram: 
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4841ec30-41c9-48ab-9dad-737ebcc5d6c3.png)
+
+## SKY130RTL D2SK3 L3 Lab flop synthesis simulations part1
+
+Asynchronous reset synthesis simulation:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/bc3105e8-f2bf-4647-a442-987520fcddff.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/e32afc71-f3e3-47c0-9cbf-3f27228dfa8f.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/315bf436-c3dc-49e6-a3d3-c571fe335518.png)
+
+
+Asynchronous set synthesis simulation:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/61e48cae-00ff-4a65-9a74-316d0354028c.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/546fcf84-e9c8-4e0d-8e63-63fc27b62984.png)
+
+Synchronous reset:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b3a10e7c-52f1-4c39-bbb7-1b5bc453ed05.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a1637dc3-4bdd-4301-a844-f7ec71f4e287.png)
+
+
+## SKY130RTL D2SK3 L4 Lab flop synthesis simulations part2
+
+Lets go to yosys and synthesize the above circuits:
+
+1. Asynchronous reset:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a9b1493b-ae7d-4c1b-b67d-10c3733304ac.png)
+
+In the flow, the flop library and standard cell library are kept seperately so we need to tell the tool where to pick the d flipflop for the design from. In this case both the libraries are same , so we ask it to look in the same library.
+It is looking for the d flipflops.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3080f3bd-442b-48aa-83d7-26a53d27591b.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6d3fd191-4567-459d-a2d9-3b77f807085a.png)
+
+
+After that we do standard synthesis step.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8a34b9f6-80b4-4c7c-bd9d-22ef9132accd.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d4ad877a-3678-473e-96e8-0ec40ac595e0.png)
+
+the tool inserted an inverter because, we wrote a flop with active high reset but the tool uses active low reset, so it inserted an inverted.
+
+2. Synchronous reset:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/11e6eb82-0fdf-4b73-a37b-64e5eecb53f3.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1c1ab02f-6ea6-4a1a-84a1-6bc9ae46e220.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b61f4890-e57a-4a38-bb42-59598ab9ee9e.png)
+
+3. sync & async reset:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cba024e2-a0d6-45e3-bac9-275a313b0b91.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1878b46a-fcba-4be3-82f0-c6dfe5e4be80.png)
+
+We wanted a flop with a synchronous reset, but what we got is reset is on an AND gate with inverted input. A_N is active low input.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6f1a9970-605f-43a5-8d4f-4072d237648a.png)
+
+## SKY130RTL D2SK3 L5 Interesting optimisations part1
+The verilog code is accepting a 3 bit input a and is generating a 4 bit output y.
+Observe the truth table:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8a4e8eaa-5f75-4934-a2a7-b4f012b768f3.png)
+
+The first 3 columns are same. so you can get the output by just appending 0 to a. We dont even need a multiplier, we just have to do shifting. 
+Say you do 5 x 4, same as appending 2 zeroes
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/aaa904db-cfc3-4e95-b620-03fdffdb0664.png)
+
+Number of cells are 0.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d8e5e937-3663-41ef-9d44-14516ccba72d.png)
+
+There is no standard cell required. so it shows the above.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/681b6d52-ad50-4ef9-8108-856015e22d7f.png)
+
+## SKY130RTL D2SK3 L6 Interesting optimisations part2
+
+Suppose you take a 2 bit number a, and a 6 bit number y
+
+We have a relation that a multiplied by 9 is y.
+(spl case where a is 3 bit number)
+* This can be considered as a x [8 + 1] = a x 8 + a x 1
+* a x 8 => append 3 zeros to a plus a x 1
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c9f0b76d-800b-43e2-a105-270ddfb92eba.png)
+
+hardware not required.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/64a469ef-48e9-4dbb-ac9b-fd8ba0719c53.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/98cdb84e-f714-42f8-a532-1ec7a6223e6a.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b2dbbdc8-bb0c-4972-a902-db2a3f5608b1.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/08f884a6-fa95-4096-b828-524b7513c498.png)
+
+
+mult8:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/332b3cce-aca6-461b-81b8-36633fbf9167.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0954dcc9-23a8-4245-9993-8784bf390866.png)
+
+
+no. of cells again 0:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0a288440-f2ed-4acd-9cd6-8d5841c102aa.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/fcaf1bd8-f355-4e70-a207-a262fcce215a.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/44a532eb-f5d1-4aff-84e3-542f99481221.png)
+
+Netlist:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9ba1ec35-3631-4a42-bd9e-8de8e0802547.png)
+
+These are some custom optimisations, very special. Here hardware can just be obtained by rewiring the existing signals. so hardware not required.
 </details>
