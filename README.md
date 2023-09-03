@@ -475,7 +475,7 @@ DO NOT EDIT THE .lib FILE
 first line : Name ofthe library sky130, 130 nm library.
 tt - stands for typical. The libraries can be slow, fast or typical
 025C - temperature
-1v80 - indicates the voltage
+1v80 - indicates the voltage 1.8 V
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b068f5fc-02fa-484d-9aee-0fa7e91bb1f9)
 
@@ -550,10 +550,125 @@ We can also observe an increase in power
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/21664594-2cf0-41cc-bb04-c99e1326987c.png)
 
 
+</details>
+
+<details><summary>Hierarchial vs Flat Synthesis</summary>
+
+## SKY130RTL D2SK2 L1 Lab05 Hierarchial synthesis flat synthesis part1
+
+File used in this lab:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/706c3e06-4d4c-42f9-ab18-89df1a070f2d.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/37609e80-5b03-4831-8c4a-20cc5c9b10e5.png)
+
+
+It has 2 sub modules:
+* sub module 1 is an AND gate
+* sub module 2 is an OR gate
+* multiple_modules is instantiating the above 2 modules as u1 and u2 respectively
+
+diagram:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/10fe6848-1f5c-4afb-8022-ebfeefdb3a8e.png)
+
+Understanding synthesis:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/7d7a6a79-dc48-4761-9969-182e9b208398.png)
+
+
+Observe:
+
+sub module 1 has one AND gate, sub module 2 has one OR gate:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/22071a75-91c9-4be1-9f77-a4814c7e20be.png)
+
+Top module has one instance of sub module 1 and one instance of sub module 2:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/291de92d-98a4-4aa5-93fc-bdd04ff825d9.png)
+
+Link the design to the library:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/7a969b92-22bb-4fa1-ac1b-aa9db5afd797.png)
+
+When you click show, you will expect the above drawn diagram but you get this:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/25873810-842e-4284-97ee-2bb4fbb65efb.png)
+
+It is not showing AND or OR gate it is showing as "u1" and "u2" -> This is called as a hierarchical design since the hierarchies are preserved.
+
+Now, we will write out the netlists:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a5da729c-b826-460e-b3b6-2c63967b079e.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/fe84dd79-a37b-41fa-9597-2c4ec1890490.png)
+
+We can see that the hierarchies are preserved:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6e5a092e-e654-47da-836e-3201b36a54bb.png)
+
+
+## SKY130RTL D2SK2 L2 Lab05 Hier synthesis flat synthesis part2:
+
+flatten: Command to write out a flat netlist
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/57e73796-e630-4f23-a736-17bc7a0abfe7.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c8e72d16-bb00-4e97-8442-3dcf9cd335ca.png)
+
+
+After flatten, the hierarchy in the netlist is not preserved anymore
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3e75f00c-6713-4caf-b240-f7e4501c368c.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/08cf97d3-ac91-446c-b397-5c30334095df.png)
+
+
+We also see the underlying components within u1 and u2 unlike previously:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ecc3ab66-a7d7-4e5d-bfb2-0d2d9345f8e9.png)
 
 
 
+Given multiple modules, lets say you want to synthesize a sub module level: 
 
+We are going to synthesize at sub module 1 although we have read the RTL at top module level:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c27636a5-d714-42d3-a73a-d2ef0b0a285a.png)
+
+
+We can see that it has inferred only one AND gate ie, sub_module1 :
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1082c219-65ec-4822-bc46-14515beb79b5.png)
+
+
+And we can see only sub_module1:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/e37c62ed-575e-4a84-aeb1-ebe796c5c784.png)
+
+We have created only sub module 1 , we have controlled the synthesized module using synth -top
+
+But why do we need this module level synthesis:
+
+Reason 1:
+* Say, you have a top module and multiple instantiations of the same component, like example a multiplier, you have 6 instantiations called mul1, mul2, mul3, mul4, mul5, mul6.
+* Now, instead of synthesizing the multiplier 6 times, you will synthesize it one time and replicate the netlist 6 times and stitch it together in the top module.
+* So, module level synthesis is preferred when we have multiple instances of the same module
+
+Reason 2: DIVIDE & CONQUER
+* Say, your design is massive and when you give it to the tool, it is not doing a good job.
+* So you give parts of it for synthesis and then stitch it together in the top module.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/e1ad8717-0496-485d-a8f8-5c26f0089e02.png)
+
+
+  
 
 </details>
+
+
+
 </details>
