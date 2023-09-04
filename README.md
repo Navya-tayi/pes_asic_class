@@ -969,7 +969,7 @@ dff_const5:
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/138b7ae4-ee4a-4107-b1b9-85be857816ef.png)
 
-
+</details>
 
 <details><summary>SKY130RTL D3SK4 - Sequential optimzations for unused outputs</summary>
 
@@ -994,6 +994,7 @@ counter_opt2.v
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5ffa6b09-9020-404b-946f-d0d6be7bdf66.png)
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/19724df8-14c0-406f-a0f8-16dab6dfbd1e.png)
+
 </details>
 </details>
 
