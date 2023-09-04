@@ -1175,6 +1175,18 @@ counter_opt2.v
 
 <details><summary>SKY130RTL D4SK1 - GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements</summary>
 
+* Blocking Assignment:
+
+- Synchronous: Blocking assignments are generally used in synchronous logic, where the execution of statements happens sequentially, one after the other.
+
+- Execution Order: In a blocking assignment, the right-hand side (RHS) expression is evaluated first, and then the result is assigned to the left-hand side (LHS) variable or wire.
+
+* Non-blocking Assignment:
+
+- Sequential Logic: Non-blocking assignments are primarily used in sequential logic, where values should be updated concurrently rather than sequentially.
+
+- Execution Order: In a non-blocking assignment, all the right-hand side (RHS) expressions are evaluated simultaneously, and then the results are assigned to the left-hand side (LHS) variables or wires concurrently. This means that the order of assignment doesn't affect the order of evaluation.
+
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9e4c8d6e-2c6f-4a2e-9379-5e4328ff6477.png)
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/2cdd40d0-be7a-4fa1-8afb-4e3d2e750923.png)
