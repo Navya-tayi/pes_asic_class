@@ -726,6 +726,7 @@ You have a MUX, if rst is high, it awaits the pos edge of clk , implemented with
 
 Even if sync_reset is toggled, it will not enter the always block, until posedge of the clock.
 Upn posedge of clock, we look for prescence of synchronous reste, if it is there, Q goes to 0, else d.
+
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4e5b2ecc-233d-4825-b2c1-be7dbfb9adc3.png)
 
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/b28ee1f1-198e-482a-bb2a-6dcc04a9a84a.png)
@@ -737,6 +738,7 @@ Although asynchronous reset can happen anytime, you will consider synchronnous r
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1fbf6386-9945-4b47-bb06-be0c957660f7.png)
 
 diagram: 
+
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/4841ec30-41c9-48ab-9dad-737ebcc5d6c3.png)
 
 ## SKY130RTL D2SK3 L3 Lab flop synthesis simulations part1
@@ -874,4 +876,14 @@ Netlist:
 
 These are some custom optimisations, very special. Here hardware can just be obtained by rewiring the existing signals. so hardware not required.
 </details>
+
+<details><summary>Day 3 - Combinational and sequential optmizations</summary>
+<details><summary>SKY130RTL D3SK1 - Introduction to optimizations</summary>
+
+
+
+
+</details>
+</details>
+
 </details>
