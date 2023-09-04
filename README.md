@@ -920,7 +920,7 @@ multiple_module_opt2:
 
 </details>
 
-<details><summary>SKY130RTL D3SK3 - Sequential logic optimizations</summary></details>
+<details><summary>SKY130RTL D3SK3 - Sequential logic optimizations</summary>
 
 dff_const1.v waveform:
 
