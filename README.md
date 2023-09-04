@@ -876,14 +876,198 @@ Netlist:
 
 These are some custom optimisations, very special. Here hardware can just be obtained by rewiring the existing signals. so hardware not required.
 </details>
+</details>
 
 <details><summary>Day 3 - Combinational and sequential optmizations</summary>
 <details><summary>SKY130RTL D3SK1 - Introduction to optimizations</summary>
+## Combinational Logic optimisation
+In digital logic, there are 2 types, combinational and sequential logic.
+We need to squeeze the logic to get the most optmized design.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ff4a780c-f88a-4ca7-a152-bee69b168519.png)
+
+</details>
+
+<details><summary>SKY130RTL D3SK2 - Combinational logic optimizations</summary>
+opt_check:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6986a397-6947-45d7-9576-914a67a2e79b.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/57add9ef-f618-4c6d-ba6d-63cd7f7404b5.png)
+
+opt_check2:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/128b2596-f354-4aea-8743-861fd1502004.png)
+
+
+opt_check3:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/395be2a3-231a-4743-b9f4-3141525818fc.png)
+
+opt_check4:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/452f3e55-09b1-452c-981f-8bb804230176.png)
+
+multiple_module_opt:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6e42a3ef-38c0-49aa-bb0e-188e72e8c727.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/00ac3307-b2d8-4685-984b-889e0cd2b402.png)
+
+multiple_module_opt2:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cbe3727c-6297-4a2e-b921-367a81585a28.png)
+
+</details>
+
+<details><summary>SKY130RTL D3SK3 - Sequential logic optimizations</summary></details>
+
+dff_const1.v waveform:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/39c69002-16b3-4a15-9f5f-942bb5208312.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/e7bc259e-b611-4172-970f-54692afc5965.png)
+
+
+dff_const2:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a6d02608-7185-4421-b424-403c3a3ecc74.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f86c63d3-9e3f-4454-bbe7-194353bcfb65.png)
+
+dff_const3:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/cd01051e-983b-488d-8d8d-dbee631abf57.png)
+
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/2079b584-d52a-47b8-bac3-9619308838e5.png)
 
 
 
 
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/e55828bc-bfe0-4286-9125-74b8cc90c17c.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/af0e085a-6847-4364-8c33-d07b337d1e41.png)
+
+
+dff_const4:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a23a6a5c-0208-492b-9efa-908505f8f425.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/d6c78884-a2c7-4912-9750-d992b767c5f4.png)
+
+
+
+dff_const5:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8a584395-11c6-4a39-b5bd-b3672ffa20a5.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/138b7ae4-ee4a-4107-b1b9-85be857816ef.png)
+
+
+
+<details><summary>SKY130RTL D3SK4 - Sequential optimzations for unused outputs</summary>
+
+## Unused output optimisation:
+
+
+counter_opt:
+
+Logic not related to primary outputs are optimised.
+
+counter_opt:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/236b5952-6384-49fa-93a0-dba08adab4a5.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/50f9649f-a737-42cd-bd16-d1f8cbc728f0.png)
+
+
+
+counter_opt2.v
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5ffa6b09-9020-404b-946f-d0d6be7bdf66.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/19724df8-14c0-406f-a0f8-16dab6dfbd1e.png)
 </details>
 </details>
 
+<details><summary>Day 4 - GLS, blocking vs non-blocking and Synthesis-Simulation mismatch</summary>
+
+<details><summary>SKY130RTL D4SK1 - GLS, Synthesis-Simulation mismatch and Blocking/Non-blocking statements</summary>
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9e4c8d6e-2c6f-4a2e-9379-5e4328ff6477.png)
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/2cdd40d0-be7a-4fa1-8afb-4e3d2e750923.png)
+
+
+ternary_operator_mux:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/ca33c5db-fc06-4166-881c-17077f23fab7.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/fb581ce5-dd8a-4525-b5cb-9e561cf26673.png)
+
+GLS output:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/317b85f5-4336-4b29-af38-5bc4792ac065.png)
+
+
+bad_mux:
+
+There is no activity on select. Activity on i0 are not sensed by the always block
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/48afdfd6-4917-4229-85c0-482779d5f52b.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/9415f3dd-3c7d-4911-9425-9f7bceb2f9fe.png)
+
+
+GLS output:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/25eabcba-8436-43ea-9223-05043e826a54.png)
+
+outside yosys:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/2e23eb66-c49d-480c-bf69-e5a1e5808106.png)
+
+
+We can observe a synthesis simulation mismatch
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/eeb71dba-e465-4779-8008-9f8fd909765a.png)
+
+
+
+blocking_caveat:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3f0c027d-eba7-4d15-bd7a-47da8f8207ff.png)
+
+to create this:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c180f4c2-27a5-4375-8fae-52ad5c88d74f.png)
+
+
+The waveform looks like, the past value or A OR B is being used :
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/effc4bd0-03ab-4c06-81dd-a26e4626baa6.png)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f0b817a3-2ca4-419f-a31c-2d8ad2de9116.png)
+
+GLS simulation:
+Here there is no usage of past values. It is using instantaneous values. There is a synthesis simulation mismatch due to blocking statement.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/341e58bb-ee71-4342-861c-95c252033909.png)
+
 </details>
+
+</details>
+
+
+
