@@ -449,9 +449,186 @@ Because we are looking for the changes in the values.
 We want to view this vcd file. We will use another tool called gtkwave to view the waveform outputs.
 ![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/45f8db70-a90e-43eb-ba7d-f7a282eb20d3.png)
 
+</details>
+
+<details><summary>SKY130RTL D1SK2 - Labs using iverilog and gtkwave </summary>
+
+## SKY130RTL D1SK2 L1 Lab1 introduction to lab
+
+Installation:
+
+![install](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f850abb9-10b9-4985-97f4-e585ecffce07)
+
+
+## SKY130RTL D1SK2 L2 Lab2 Introduction iverilog gtkwave part1 and part2:
+
+good_mux:
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6c017948-052b-47f2-a5ce-e552c074d0a9)
+
+
+![a_out is created](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/afb8581a-df9b-44de-a6b2-3bb9c3529e0e)
+
+
+when you execute a.out, vcd file is dumped:
+
+![when you execute a out, the vcd file is dumped](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/8aae259b-4c48-48fb-b64b-8b9586758c0d)
+
+gtkwave:
+
+Every file has a corresponding testbench file in cd verilog_files
+
+Test bench instatiates the design. 
+
+Instantiation: When you want to use a particular module within your larger design, you instantiate it. This means you create an instance of that module with a specific name and connect it to other parts of your design. It's like creating a copy of that module to use in your circuit.
+
+In this testbench there is no stimulus observer, we are directly observing the output in gtkwave
+
+![good_mux_waveform_multiplexor_waveform](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/0976925c-efa4-4240-b105-50c732535bc4)
+
+</details>
+
+<details><summary> SKY130RTL D1SK3 - Introduction to Yosys and Logic synthesis</summary>
+
+## SKY130RTL D1SK3 L1 Introduction to yosys
+
+Synthesizer-> tool for converting RTL to netlist
+Yosys is the synthesizer used in this course
+
+![yosys](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1c890325-8590-4833-9234-63ae87fad29d)
+
+* Design and .lib is applied to yosys and we are going to get a netlist file, netlist is the representation of the dsign in form of the standard cells in the .lib
+
+* Read_verilog reads the design
+* Read_liberty reads the .lib
+
+* Write_verilog write sout the netlist file
+
+* When you execute the write_verilog command you will get the netlist file
+
+* Netlist is the representation of the design in form of cells present in the .lib
+
+### How do you know your synthsis is correct? How do you verify your synthesis?
+* You have netlist and Testbench
+* Give to iverilog, we get vcd file, we load waveform to gtk wave, we will bw able to observe the stimulus, This stimulus should be same as output observd during RTL simulation.
+* Netlist is a true representation of the design
+* The design was written as a behavourial Verilog code and netlist is the Verilog code in terms of standard cells. 
+* But between design in the form of RTL and design in the form of netlist, the primary ips and primary outputs are not same. Means we can use the same test bench. Test bench for netlist is same as testbench for RTL.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/92d9c629-18bc-4b4b-b79a-a003fd492085)
+
+
+## SKY130RTL D1SK3 L2 introduction to logic synthesis part1
+
+RTL Design is the behavourial representation of the required specification.
+The specification is written in a behavourial form using HDL for example veriog HDL
+You have an RTL code but you need a digital logic circuit.
+
+How do you map both
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c00e1f45-7f3a-44cb-bdad-8e61ef0c626c)
+
+
+#### So we use “synthesis”
+
+RTL to gate level translation is called synthesis
+The design is converted into gates and the connections are made between the agtes
+This is given out as a file called netlist
+
+What is.lib:
+.lib is the collection of logical modules, a bukect of all the standard cells.
+Includes basic logic gates like AND, OR, NOT, etc
+Has different flavours of the same gate
+Like
+2 input, 3 input and 4 input and gate and a slow, medium and fast version for each
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/be134578-4fb9-420d-b49c-bc19f0f529f6)
+
+
+
+
+It may not be exhaustive of all gates that you want but it is rich enough to implement any other Boolean/ logic function.
+.lib contains standard cells to implement logic functions.
+
+
+
+Why different falvours of gate:
+
+why fast cells?
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/3986a68e-66c1-4988-b52e-10778a870058)
+
+
+## SKY130RTL D1SK3 L3 introduction to logic synthesis part2
+
+why slow cells?
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6269eda8-6218-4bb3-a1b8-0223dcdb226f)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/91bf0a45-42b2-4a3f-a296-4baab758b0e3)
+
+
+Load in digital logic circuit is actually a capacitor.
+Faster the charging and discharging in the capacitor, lesser is the cell delay
+Propagation delay is the time for the input to be felt at the output. 
+How fast will the input change? Will depend upon how fast the input is able to be driven.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/618fb417-1c8c-4033-b731-d94b048b16ae)
+
+
+
+If capacitance is large, one gate will dirve the other gate slowly,
+If capacitance is small, one gate will drive the other gate faster.
+To charge/ dicharge fast -> more current sourcing capability means we need wider transistor, cuz current carrying capacity depends on the width. But more are, so price and ppower are more
+Narrow transistors, more delay but less power area and cost.
+
+Selection of cells:
+
+So we need to guide the synthesizer. 
+synthesizer does a syntax check, It is mapped to the ports.
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/f4ea30ec-97b1-41b5-b64a-f1980bdc48b2)
+
+</details>
+
+<details><summary>SKY130RTL D1SK4 - Labs using Yosys and Sky130 PDKs</summary>
+
+verilog file successfully read:
+
+![verilog_file_read_sucessfully](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/6126df7b-677f-44bb-a8cb-269e2ceb6a07)
+
+
+synth:
+
+![synth](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/1c5e9c44-b2e2-4135-a2c4-cda3b44be5ad)
+
+after ABC command:
+
+![after ABC command](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/7e3fc64b-4158-4afd-9e3d-6aef30678240)
+
+after show command:
+
+![after show command](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/c796084e-cee4-47ba-8887-2d8df42c5158)
+
+netlist_generated: 
+
+![netlist_generated](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/09058142-e06e-4d02-b7f3-a25aa085e894)
+
+
+write_verilog with no_attr:
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/a81eefc9-ce7a-4784-ba93-6dd6c6826b1d)
+
+
+![image](https://github.com/Navya-tayi/pes_asic_class/assets/79205242/5e88ecae-1aa3-4952-9aaf-e5ef0cc8f744)
+
 
 
 </details>
+
+
 
 
 
